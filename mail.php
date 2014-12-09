@@ -1,7 +1,7 @@
 <?php
 	require "connect.php";
 
-	$messages = mysql_query("SELECT * FROM Message");
+	$messages = mysql_query("SELECT * FROM Message LIMIT 10");	//TODO Get the current user_id and display their messages
 
 ?>
 
