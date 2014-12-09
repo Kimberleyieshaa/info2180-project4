@@ -2,6 +2,9 @@
 	/*import the database connection file*/
 	require "connect.php";
 
+	/*Check if the user is already logged in*/
+
+
 	//Start user sesion
 	session_start();
 
@@ -16,10 +19,14 @@
 	/*Checks if the username and password given is found in the database*/
 	while ($row = mysql_fetch_array($query)) {
 		if ($username == $row["username"] && $password == $row["password"]) {
-			echo "Welcome" . " " . $row["username"];
+			
+
+			echo "Welcome" . " " . $row["username"]; //REMOVE
+
 			//TODO REDIRECT user to mail.php page (User homepage)
-			$_SESSION['user_id'] = $row['user_id'];
-			$user_id = $row['user_id'];	//store logged in user id 
+
+			$_SESSION['id'] = $row['id'];
+			echo $row['id'];	//store logged in user id 
 		}
 	}
 ?>
