@@ -1,10 +1,11 @@
 <?php
+	/*import the database connection file*/
 	require "connect.php";
 
-	//Resume user session
+	/*Resume user session*/
 	session_start();
 
-	//Check if the user session is set, else redirect to homepage
+	/*Check if the user session is set, else redirect to homepage*/
 	if(isset($_SESSION['id'])) {
 
 		//Set current logged in user_id
@@ -15,11 +16,17 @@
 		$subject = $_REQUEST['subject'];
 		$body = $_REQUEST['body'];
 		
-		//Inserts the message into the database
-		$insert = "INSERT INTO Message (recipient_id, subject, body, user_id) VALUES ('$recipient', '$subject', '$body', '$user_id')"; //not working
+		/*Query that will insert the message into the database*/
+		$insert = "INSERT INTO Message (recipient_ids, subject, body, user_id) VALUES ('$recipient', '$subject', '$body', '$user_id')";
+
+		/*Insert the message to the database*/
+		mysql_query($insert);
+
+		//TODO Check if message was sent
+		echo "Message sent!"; //REMOVE
 
 	} else {
-		print "session not set";
+		print "Please login to send a message.";
 	}
 
 	//http_redirect("mail.php", true); TODO redirect to homepage
