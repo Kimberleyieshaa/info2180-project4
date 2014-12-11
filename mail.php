@@ -1,7 +1,12 @@
 <?php
 	require "connect.php";
 
-	$messages = mysql_query("SELECT * FROM Message LIMIT 10");	//TODO Get the current user_id and display their messages
+	/*resume user session*/
+	session_start();
+
+	$recipient_id = $_SESSION['id'];
+
+	$messages = mysql_query("SELECT * FROM Message WHERE recipient_ids=$recipient_id LIMIT 10");	//TODO Get the first 10 unread messages
 
 ?>
 
@@ -23,7 +28,8 @@
 						<td><?php print $row['user_id']; ?></td>
 						<td><?php print $row['subject']; ?></td>
 						<td><?php print $row['body']; ?></td>
-						<td><?php print $row['recipient_id']; ?></td>
+						<td><?php print $row['recipient_ids']; ?></td>
+						<td><a href=<?php echo "message.php?id=" . $row['id']; ?>>Read</a></td>
 					</tr>
 					<?php
 				}

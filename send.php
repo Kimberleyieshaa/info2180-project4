@@ -12,15 +12,24 @@
 		$user_id = $_SESSION['id'];
 
 		/*Get data from form*/
-		$recipient = $_REQUEST['recipient'];
+		$recipient_ids = $_REQUEST['recipient'];
 		$subject = $_REQUEST['subject'];
 		$body = $_REQUEST['body'];
 		
-		/*Query that will insert the message into the database*/
-		$insert = "INSERT INTO Message (recipient_ids, subject, body, user_id) VALUES ('$recipient', '$subject', '$body', '$user_id')";
+		$recipients = explode(";", $recipient_ids);
 
-		/*Insert the message to the database*/
-		mysql_query($insert);
+		for ($i = 0; $i < count($recipients); $i++) {
+			str_replace(" ", "", $recipients[$i]);
+			/*Query that will insert the message into the database*/
+			$insert = "INSERT INTO Message (recipient_ids, subject, body, user_id) VALUES ('$recipients[$i]', '$subject', '$body', '$user_id')";
+
+			/*Insert the message to the database*/
+			mysql_query($insert);
+
+			/*Check if the message is sent*/
+			//$query = "SELECT * FROM Message WHERE recipient_ids=$recipients[$i]"; //TODO
+
+		}
 
 		//TODO Check if message was sent
 		echo "Message sent!"; //REMOVE
