@@ -16,11 +16,9 @@
 	/*Checks if the username and password given is found in the database*/
 	while ($row = mysql_fetch_array($query)) {
 		if ($username == $row["username"] && $password == $row["password"]) {
-			
+			echo "Welcome" . " " . $row["username"];
 
-			echo "Welcome" . " " . $row["username"]; //REMOVE
-
-			/*store logged in user id to identify the user later*/
+			/*store logged in user id to identify the user later (set user session)*/
 			$_SESSION['id'] = $row['id'];
 		}
 	}
