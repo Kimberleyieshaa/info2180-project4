@@ -1,9 +1,46 @@
 /*This is the stylesheet*/
 
 form input {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
+	text-align: center;
+	font-family: helvetica;
+	font-size: 30px;
 }
 
-div {
-	margin-bottom: 15px;
+form{
+	font-family: helvetica;
+	font-size: 30px;
+	margin-left: 500px;
+	margin-top: 100px;
+}
+
+#title {
+	font-family: tahoma;
+	font-color: blue;
+	text-align: center;
+	font-size: 75px;
+	font-weight:  bolder;
+}
+
+img {
+	display: inline;
+	border: 5px solid black;
+	padding: 20px;
+	margin: 75px;
+}
+
+.log_button {
+	font-family:helvetica;
+	font-size: 40px;
+	margin-left: 90px;
+	color: black;
+	font-style: none;
+	text-decoration: none;
+}
+
+#refresh {
+	margin-left: 200px;
+	font-family: helvetica;
+	font-weight: bold;
+
 }
