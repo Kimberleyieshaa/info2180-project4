@@ -26,13 +26,16 @@ img {
 	display: inline;
 	border: 5px solid black;
 	padding: 20px;
-	margin: 75px;
+	margin-left: 150px;
+	margin-bottom: 75px;
+	height:100px;
+	width:100px;
 }
 
 .log_button {
 	font-family:helvetica;
 	font-size: 40px;
-	margin-left: 90px;
+	margin-left: 80px;
 	color: black;
 	font-style: none;
 	text-decoration: none;
