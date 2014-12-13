@@ -45,6 +45,29 @@ img {
 
 }
 
-#messages {
+#messages table {
 	width:100%;
+	border-collapse: collapse;
+}
+
+#messages table th {
+	border-bottom: 2px solid #000000; 
+}
+
+#messages table td {
+	text-align: center;
+}
+
+div.subject {
+	margin-bottom: 20px;
+	text-align: center;
+	font-family: helvetica;
+	font-size: 30px;
+}
+
+div.body {
+	margin-bottom: 20px;
+	text-align: center;
+	font-family: helvetica;
+	font-size: 30px;
 }

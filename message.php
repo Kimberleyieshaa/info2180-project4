@@ -42,16 +42,22 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charst="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="prototype.js"></script>
+	<script src="script.js" type="text/javascript"> </script>
+</head>
 <body>
 	<?php
 		$row = mysql_fetch_array(mysql_query($get_message));
 	?>
-	<div id="subject"><?php echo $row['subject']; ?></div>
-	<div id="body"><?php echo $row['body']; ?></div>
+	<div class="subject"><?php echo $row['subject']; ?></div>
+	<div class="body"><?php echo $row['body']; ?></div>
 
 	<div id="reply">
 		<form action="reply.php" method="post">
-			Message: <input type="text" id="body" name="body" placeholder="Message"><br>
+			Message: <input type="text" id="body" name="body" placeholder="Reply to message"><br>
 			<input type="submit" value="reply">
 			<input type="hidden" id="message_id" name="message_id" value=<?php echo $row['id']; ?>>
 			<input type="hidden" id="subject" name="subject" value=<?php echo $row['subject']; ?>>
