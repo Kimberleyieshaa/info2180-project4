@@ -1,8 +1,4 @@
 <?php
-	/********************
-		CHEAPO HOMEPAGE
-	********************/
-
 	/*connect to database*/
 	require "connect.php";
 
@@ -28,6 +24,7 @@
 </head>
 <body>
 	<div id="users">
+		<h1>List of Cheapo Users</h1>
 		<table>
 			<thead>
 				<th>User id</th>
@@ -52,6 +49,7 @@
 		</table>
 	</div>
 	<div id="messages">
+		<h1>Recent messages</h1>
 		<table>
 			<thead>
 				<th>Sender</th>
