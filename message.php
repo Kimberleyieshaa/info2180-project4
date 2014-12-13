@@ -7,28 +7,36 @@
 
 	//Check if user is logged in
 	if (isset($_SESSION['id'])) {
-
+		//set current user id
 		$recipient_id = $_SESSION['id'];
+		//set current message id
 		$message_id = $_GET['id'];
 
-		/**/
+		/*Get all the read messages*/
 		$query = mysql_query("SELECT * FROM Message_read");
-
+		
 		/*Mark message as read*/
-		/*while ($row = mysql_fetch_array($query)) {
-			Check if the message is already read
+		$count = 1;
+		while ($row = mysql_fetch_array($query)) {
+			//Check if the message is already read
 			if ($row['message_id'] == $message_id) {
 				break;
 			}
+			$count++;
+		}
+		$total_query = mysql_query("SELECT * FROM Message_read");
+		$total = 0;
+		//Get the total number of read messages
+		while ($row = mysql_fetch_array($total_query)) {
+			$total++;
+		}
+		//If count exceeds total then mark the message as read
+		if ($count > $total) {
+			$mark_read = "INSERT INTO Message_read (message_id, reader_id) VALUES ('$message_id', '$recipient_id')";
+			mysql_query($mark_read);
+		}
 
-			//Mark message as read
-			//$read = mysql_query("INSERT INTO Message_read (message_id, reader_id) VALUES ('$message_id', '$recipient_id')");
-		}*/
-
-		/*Mark message as read*/
-		//$read = mysql_query("INSERT INTO Message (message_id, reader_id) VALUES ('$message_id', '$recipient_id')"); //FIX
-
-
+		//get message contents
 		$get_message = "SELECT * FROM Message WHERE id=$message_id";
 ?>
 
@@ -54,5 +62,7 @@
 </html>
 
 <?php
+	} else {
+		echo "Please login to continue.";
 	}
 ?>

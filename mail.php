@@ -78,5 +78,7 @@
 </html>
 
 <?php
+	} else {
+		echo "Please login to continue.";
 	}
 ?>
